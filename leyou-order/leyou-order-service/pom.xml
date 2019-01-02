@@ -92,11 +92,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.leyou.seckill</groupId>
-            <artifactId>leyou-seckill</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>

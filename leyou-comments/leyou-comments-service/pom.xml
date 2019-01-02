@@ -81,12 +81,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.leyou.review</groupId>
-            <artifactId>leyou-review-interface</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>com.leyou.comments</groupId>
             <artifactId>leyou-comments-interface</artifactId>
             <version>1.0.0-SNAPSHOT</version>
