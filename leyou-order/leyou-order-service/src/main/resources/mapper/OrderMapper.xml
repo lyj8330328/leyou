@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leyou.order.mapper.OrderMapper">
+    <resultMap id="OrderWithDetail" type="com.leyou.order.pojo.Order" autoMapping="true">
+        <id column="order_id" property="orderId"></id>
+    </resultMap>
+    <select id="queryOrderList" resultMap="OrderWithDetail">
+        SELECT o.order_id,o.actual_pay, o.total_pay,o.create_time, os.status
+        FROM tb_order o
+        LEFT JOIN tb_order_status os ON os.order_id = o.order_id
+        WHERE o.user_id = #{userId}
+        <if test="status != null and status != 0">
+            AND os.status = #{status}
+        </if>
+        ORDER BY o.create_time DESC
+    </select>
+</mapper>

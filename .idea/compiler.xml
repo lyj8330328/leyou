@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
+        <module name="leyou-api-gateway" />
+        <module name="leyou-authentication-common" />
+        <module name="leyou-authentication-service" />
+        <module name="leyou-cart" />
+        <module name="leyou-comment-service" />
+        <module name="leyou-comments-interface" />
+        <module name="leyou-comments-service" />
+        <module name="leyou-config" />
+        <module name="leyou-goods-web" />
+        <module name="leyou-item-interface" />
+        <module name="leyou-item-service" />
+        <module name="leyou-mongondb" />
+        <module name="leyou-order-interface" />
+        <module name="leyou-order-service" />
+        <module name="leyou-registry" />
+        <module name="leyou-search" />
+        <module name="leyou-seckill-interface" />
+        <module name="leyou-seckill-service" />
+        <module name="leyou-sms" />
+        <module name="leyou-upload" />
+        <module name="leyou-user-interface" />
+        <module name="leyou-user-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+      <module name="leyou-comment" target="1.8" />
+      <module name="leyou-comment-interface" target="1.8" />
+      <module name="leyou-comment-service" target="1.8" />
+      <module name="leyou-mongondb" target="1.8" />
+      <module name="leyou-review" target="1.8" />
+      <module name="leyou-review-interface" target="1.8" />
+      <module name="leyou-review-service" target="1.8" />
+      <module name="leyou-review-servie" target="1.8" />
+      <module name="leyou-test" target="1.8" />
+      <module name="leyout-test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

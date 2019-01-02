@@ -1,0 +1,22 @@
+server:
+  port: 10011
+spring:
+  application:
+    name: leyou-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lyj8330328/leyou-config.git
+  rabbitmq:
+    host: 192.168.19.121
+    username: /leyou
+    password: leyou
+    virtual-host: /leyou
+
+
+management: #暴露触发消息总线的地址
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
