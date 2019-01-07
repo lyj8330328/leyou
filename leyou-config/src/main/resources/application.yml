@@ -7,9 +7,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lyj8330328/leyou-config.git
+          uri: https://gitee.com/lyj8330328/leyou-config-dev.git
   rabbitmq:
-    host: 192.168.19.121
+    host: 47.104.175.20
     username: /leyou
     password: leyou
     virtual-host: /leyou

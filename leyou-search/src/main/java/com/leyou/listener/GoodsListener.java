@@ -1,5 +1,7 @@
 package com.leyou.listener;
 
+import com.leyou.client.GoodsClient;
+import com.leyou.item.bo.SpuBo;
 import com.leyou.service.SearchService;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
