@@ -11,7 +11,7 @@
 
     <groupId>com.leyou.common</groupId>
     <artifactId>leyou-common</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->

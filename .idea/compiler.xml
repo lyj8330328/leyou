@@ -14,6 +14,7 @@
         <module name="leyou-comment-service" />
         <module name="leyou-comments-interface" />
         <module name="leyou-comments-service" />
+        <module name="leyou-common" />
         <module name="leyou-config" />
         <module name="leyou-goods-web" />
         <module name="leyou-item-interface" />

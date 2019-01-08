@@ -11,6 +11,7 @@
 
     <groupId>com.leyou.item.interface</groupId>
     <artifactId>leyou-item-interface</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

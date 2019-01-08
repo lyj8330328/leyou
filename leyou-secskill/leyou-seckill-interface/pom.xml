@@ -11,6 +11,7 @@
 
     <groupId>com.leyou.seckill</groupId>
     <artifactId>leyou-seckill-interface</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

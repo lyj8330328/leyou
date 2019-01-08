@@ -11,6 +11,7 @@
 
     <groupId>com.leyou.comments</groupId>
     <artifactId>leyou-comments-interface</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
