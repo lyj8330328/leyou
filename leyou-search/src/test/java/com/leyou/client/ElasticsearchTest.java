@@ -93,7 +93,26 @@
 //
 //    @Test
 //    public void testDelete(){
-//        this.goodsRepository.deleteById((long) 2);
+//        this.goodsRepository.deleteAll();
+//    }
+//
+//    @Test
+//    public void testConnection(){
+//        List<SpuBo> list = new ArrayList<>();
+//        int page = 1;
+//        int row = 10;
+//        int size;
+//        PageResult<SpuBo> result = this.goodsClient.querySpuByPage(page, row, null, true, null, true);
+////        do {
+////            //分页查询数据
+////            PageResult<SpuBo> result = this.goodsClient.querySpuByPage(page, row, null, true, null, true);
+////            List<SpuBo> spus = result.getItems();
+////            size = spus.size();
+////            page ++;
+////            list.addAll(spus);
+////        }while (size == 10);
+//
+//        System.out.println("数据量：" + list.size());
 //    }
 //
 //

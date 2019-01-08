@@ -79,7 +79,6 @@ public class SearchController implements InitializingBean {
         //遍历spu
         for (SpuBo spu : list) {
             try {
-                System.out.println("spu id" + spu.getId());
                 Goods goods = this.searchService.buildGoods(spu);
                 goodsList.add(goods);
             } catch (IOException e) {
