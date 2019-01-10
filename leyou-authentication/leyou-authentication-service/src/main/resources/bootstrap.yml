@@ -4,4 +4,4 @@ spring:
       name: auth
       profile: dev
       label: master
-      uri: http://172.31.179.200:10011
+      uri: http://127.0.0.1:10011

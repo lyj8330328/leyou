@@ -43,6 +43,7 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
+
         <!--配置管理依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -46,4 +46,9 @@
       <module name="leyout-test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="leyou-common" options="" />
+    </option>
+  </component>
 </project>

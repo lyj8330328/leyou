@@ -86,25 +86,18 @@ public class SeckillController implements InitializingBean {
 
         //3.读取库存，减一后更新缓存
         BoundHashOperations<String,Object,Object> hashOperations = this.stringRedisTemplate.boundHashOps(KEY_PREFIX);
-        String s = (String) hashOperations.get(seckillGoods.getSkuId().toString());
-        if (s == null){
-            return ResponseEntity.ok(result);
-        }
-        int stock = Integer.valueOf(s) - 1;
+        Long stock = hashOperations.increment(seckillGoods.getSkuId().toString(), -1);
 
         //4.库存不足直接返回
         if (stock < 0){
             localOverMap.put(seckillGoods.getSkuId(),true);
             return ResponseEntity.ok(result);
         }
-        //5.更新库存
-        hashOperations.delete(seckillGoods.getSkuId().toString());
-        hashOperations.put(seckillGoods.getSkuId().toString(),String.valueOf(stock));
 
-        //6.库存充足，请求入队
-        //6.1 获取用户信息
+        //5.库存充足，请求入队
+        //5.1 获取用户信息
         SeckillMessage seckillMessage = new SeckillMessage(userInfo,seckillGoods);
-        //6.2 发送消息
+        //5.2 发送消息
         this.seckillService.sendMessage(seckillMessage);
 
 

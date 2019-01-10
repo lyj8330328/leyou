@@ -15,17 +15,6 @@
         <option value="$PROJECT_DIR$/leyou-review/leyou-review-servie/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/leyou-comment/leyou-comment-service/pom.xml" />
-        <option value="$PROJECT_DIR$/leyou-comment/pom.xml" />
-        <option value="$PROJECT_DIR$/leyou-mongondb/pom.xml" />
-        <option value="$PROJECT_DIR$/leyou-review/leyou-review-service/pom.xml" />
-        <option value="$PROJECT_DIR$/leyou-review/leyou-test/pom.xml" />
-        <option value="$PROJECT_DIR$/leyou-review/pom.xml" />
-        <option value="$PROJECT_DIR$/leyout-test/pom.xml" />
-      </set>
-    </option>
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="org.jetbrains.annotations.Nullable" />

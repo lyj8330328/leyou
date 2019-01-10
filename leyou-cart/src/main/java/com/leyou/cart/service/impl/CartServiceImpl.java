@@ -12,7 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundHashOperations;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -31,6 +33,9 @@ public class CartServiceImpl implements CartService {
     private StringRedisTemplate stringRedisTemplate;
 
     @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Autowired
     private GoodsClient goodsClient;
 
     private static String KEY_PREFIX = "leyou:cart:uid:";
@@ -43,6 +48,8 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public void addCart(Cart cart) {
+
+
         //1.获取用户
         UserInfo userInfo = LoginInterceptor.getLoginUser();
         //2.Redis的key
