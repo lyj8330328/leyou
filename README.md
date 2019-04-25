@@ -254,6 +254,12 @@ FastDFS两个主要的角色：Tracker Server 和 Storage Server 。
 
 具体请参照：https://blog.csdn.net/lyj2018gyq/article/details/83654179#2.1%20Nginx
 
-### 四、博客地址
+### 四、数据库
+
+我的版本是最老的一般，所以数据库可能会和新的不一致，关键就是在商品详情页面的显示上，可以参考我`leyou-goods-web`中的写法，最终效果一致。
+
+另外在数据库中又多了几张表：`tb_address`、`tb_seckill_order`、`tb_seckill_sku`，地址表建议保留，其他的可以连同秒杀微服务一起删掉（如果你不需要的话）
+
+### 五、博客地址
 
 [传送门](https://blog.csdn.net/lyj2018gyq/article/category/7963560)
