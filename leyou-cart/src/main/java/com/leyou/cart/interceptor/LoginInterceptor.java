@@ -94,7 +94,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-       t1.remove();
+        //防止内存泄漏
+        t1.remove();
     }
 
     public static UserInfo getLoginUser(){

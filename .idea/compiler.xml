@@ -48,7 +48,27 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="leyou-common" options="" />
+      <module name="leyou-api-gateway" options="-parameters" />
+      <module name="leyou-authentication-common" options="-parameters" />
+      <module name="leyou-authentication-service" options="-parameters" />
+      <module name="leyou-cart" options="-parameters" />
+      <module name="leyou-comments-interface" options="-parameters" />
+      <module name="leyou-comments-service" options="-parameters" />
+      <module name="leyou-common" options="-parameters" />
+      <module name="leyou-config" options="-parameters" />
+      <module name="leyou-goods-web" options="-parameters" />
+      <module name="leyou-item-interface" options="-parameters" />
+      <module name="leyou-item-service" options="-parameters" />
+      <module name="leyou-order-interface" options="-parameters" />
+      <module name="leyou-order-service" options="-parameters" />
+      <module name="leyou-registry" options="-parameters" />
+      <module name="leyou-search" options="-parameters" />
+      <module name="leyou-seckill-interface" options="-parameters" />
+      <module name="leyou-seckill-service" options="-parameters" />
+      <module name="leyou-sms" options="-parameters" />
+      <module name="leyou-upload" options="-parameters" />
+      <module name="leyou-user-interface" options="-parameters" />
+      <module name="leyou-user-service" options="-parameters" />
     </option>
   </component>
 </project>

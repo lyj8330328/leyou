@@ -11,7 +11,7 @@ public interface GoodsHtmlService {
      * 创建html页面
      * @param spuId
      */
-    void createHtml(Long spuId);
+    void createHtml(Long spuId) throws InterruptedException;
 
     /**
      * 新建线程处理页面静态化，Controller调用

@@ -33,7 +33,7 @@ import java.util.*;
 public class SeckillController implements InitializingBean {
 
     @Autowired
-    private SeckillService seckillService;
+    private  SeckillService seckillService;
 
     @Autowired
     private GoodsClient goodsClient;
@@ -99,7 +99,6 @@ public class SeckillController implements InitializingBean {
         SeckillMessage seckillMessage = new SeckillMessage(userInfo,seckillGoods);
         //5.2 发送消息
         this.seckillService.sendMessage(seckillMessage);
-
 
         return ResponseEntity.ok(result);
     }

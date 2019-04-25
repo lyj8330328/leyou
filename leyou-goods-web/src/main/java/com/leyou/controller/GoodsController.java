@@ -46,7 +46,7 @@ public class GoodsController {
 
     @GetMapping(value = "{id}.html",produces = "text/html")
     @ResponseBody
-    public String toItemPage(HttpServletRequest request, HttpServletResponse response, Model model, @PathVariable("id")String id){
+    public String toItemPage(HttpServletRequest request, HttpServletResponse response, Model model, @PathVariable("id")String id) throws InterruptedException {
         Long idN = Long.parseLong(id);
         //加载数据
         Map<String, Object> modelMap = this.goodsService.loadModel(idN);

@@ -35,7 +35,7 @@ public class GoodsHtmlServiceImpl implements GoodsHtmlService {
 
 
     @Override
-    public void createHtml(Long spuId) {
+    public void createHtml(Long spuId) throws InterruptedException {
         PrintWriter writer = null;
 
         //获取页面数据
@@ -66,7 +66,13 @@ public class GoodsHtmlServiceImpl implements GoodsHtmlService {
      */
     @Override
     public void asyncExecute(Long spuId) {
-        ThreadUtils.execute(() ->createHtml(spuId));
+        ThreadUtils.execute(() -> {
+            try {
+                createHtml(spuId);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override

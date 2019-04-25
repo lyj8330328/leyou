@@ -13,5 +13,5 @@ public interface GoodsService {
      * @param spuId
      * @return
      */
-    Map<String,Object> loadModel(Long spuId);
+    Map<String,Object> loadModel(Long spuId) throws InterruptedException;
 }

@@ -235,6 +235,25 @@ FastDFS两个主要的角色：Tracker Server 和 Storage Server 。
 - 用户查询
 - 修改用户个人资料
 
-### 三、博客地址
+### 三、如何启动项目
+
+在虚拟机中进行以下中间件的配置：
+
+- ES：搜索
+- FDFS：文件上传
+- nginx：代理FDFS中的图片及静态图片
+- Rabbitmq：数据同步
+- Redis：缓存
+
+并将配置文件中所有和虚拟机相关的ip进行修改
+
+本机中需要的配置：
+
+- nginx：前端所有请求统一代理到网关，域名的反向代理
+- host：实现域名访问
+
+具体请参照：https://blog.csdn.net/lyj2018gyq/article/details/83654179#2.1%20Nginx
+
+### 四、博客地址
 
 [传送门](https://blog.csdn.net/lyj2018gyq/article/category/7963560)
