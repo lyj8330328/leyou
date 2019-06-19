@@ -19,6 +19,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -46,7 +47,7 @@ public class GoodsController {
 
     @GetMapping(value = "{id}.html",produces = "text/html")
     @ResponseBody
-    public String toItemPage(HttpServletRequest request, HttpServletResponse response, Model model, @PathVariable("id")String id) throws InterruptedException {
+    public String toItemPage(HttpServletRequest request, HttpServletResponse response, Model model, @PathVariable("id")String id) throws InterruptedException, ExecutionException {
         Long idN = Long.parseLong(id);
         //加载数据
         Map<String, Object> modelMap = this.goodsService.loadModel(idN);
