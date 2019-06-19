@@ -72,6 +72,8 @@ public class GoodsHtmlServiceImpl implements GoodsHtmlService {
                 createHtml(spuId);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
             }
         });
     }
