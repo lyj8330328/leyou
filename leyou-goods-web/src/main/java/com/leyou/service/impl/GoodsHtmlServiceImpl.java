@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @Author: 98050
@@ -35,7 +36,7 @@ public class GoodsHtmlServiceImpl implements GoodsHtmlService {
 
 
     @Override
-    public void createHtml(Long spuId) throws InterruptedException {
+    public void createHtml(Long spuId) throws InterruptedException, ExecutionException {
         PrintWriter writer = null;
 
         //获取页面数据
