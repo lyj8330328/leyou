@@ -1,6 +1,7 @@
 package com.leyou.service;
 
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @Author: 98050
@@ -13,5 +14,5 @@ public interface GoodsService {
      * @param spuId
      * @return
      */
-    Map<String,Object> loadModel(Long spuId) throws InterruptedException;
+    Map<String,Object> loadModel(Long spuId) throws InterruptedException, ExecutionException;
 }

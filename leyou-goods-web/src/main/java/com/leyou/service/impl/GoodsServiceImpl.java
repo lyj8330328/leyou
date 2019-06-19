@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -37,44 +40,31 @@ public class GoodsServiceImpl implements GoodsService {
     private CategoryClient categoryClient;
 
     @Override
-    public Map<String, Object> loadModel(Long spuId) throws InterruptedException {
+    public Map<String, Object> loadModel(Long spuId) throws InterruptedException, ExecutionException {
 
-        final CountDownLatch countDownLatch = new CountDownLatch(3);
-        List<Long> ids = new ArrayList<>();
-        AtomicReference<SpuBo> spuBo = null;
-        AtomicReference<SpuDetail> spuDetail = null;
-        AtomicReference<List<Sku>> skuList = null;
-        new Thread(() -> {
-            //查询商品信息
-            spuBo.set(this.goodsClient.queryGoodsById(spuId));
+        final CountDownLatch countDownLatch = new CountDownLatch(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
 
-            //查询商品详情
-            spuDetail.set(spuBo.get().getSpuDetail());
-
-            //查询skus
-            skuList.set(spuBo.get().getSkus());
-
-            //查询分类信息
-            ids.add(spuBo.get().getCid1());
-            ids.add(spuBo.get().getCid2());
-            ids.add(spuBo.get().getCid3());
+        SpuBo spuBo = executorService.submit(() -> {
             countDownLatch.countDown();
-        }).start();
+            return this.goodsClient.queryGoodsById(spuId);
+        }).get();
 
-        AtomicReference<List<Category>> categoryList = null;
-        new Thread(() -> {
-            categoryList.set(this.categoryClient.queryCategoryByIds(ids).getBody());
+        Brand brand = executorService.submit(() -> {
             countDownLatch.countDown();
-        }).start();
-
-        AtomicReference<Brand> brand = null;
-        new Thread(() -> {
-            //查询品牌信息
-            brand.set(this.brandClient.queryBrandByIds(Collections.singletonList(spuBo.get().getBrandId())).get(0));
-            countDownLatch.countDown();
-        }).start();
+            return this.brandClient.queryBrandByIds(Collections.singletonList(spuBo.getBrandId())).get(0);
+        }).get();
 
         countDownLatch.await();
+
+        SpuDetail spuDetail = spuBo.getSpuDetail();
+        List<Sku> skuList = spuBo.getSkus();
+        List<Long> ids = new ArrayList<>();
+        ids.add(spuBo.getCid1());
+        ids.add(spuBo.getCid2());
+        ids.add(spuBo.getCid3());
+
+        List<Category> categoryList = executorService.submit(() -> this.categoryClient.queryCategoryByIds(ids).getBody()).get();
         /**
          * 对于规格属性的处理需要注意以下几点：
          *      1. 所有规格都保存为id和name形式
@@ -84,7 +74,7 @@ public class GoodsServiceImpl implements GoodsService {
          */
 
         //获取所有规格参数，然后封装成为id和name形式的数据
-        String allSpecJson = spuDetail.get().getSpecifications();
+        String allSpecJson = spuDetail.getSpecifications();
         List<Map<String,Object>> allSpecs = JsonUtils.nativeRead(allSpecJson, new TypeReference<List<Map<String, Object>>>() {
         });
         Map<Integer,String> specName = new HashMap<>();
@@ -93,7 +83,7 @@ public class GoodsServiceImpl implements GoodsService {
 
 
         //获取特有规格参数
-        String specTJson = spuDetail.get().getSpecTemplate();
+        String specTJson = spuDetail.getSpecTemplate();
         Map<String,String[]> specs = JsonUtils.nativeRead(specTJson, new TypeReference<Map<String, String[]>>() {
         });
         Map<Integer,String> specialParamName = new HashMap<>();
@@ -106,11 +96,11 @@ public class GoodsServiceImpl implements GoodsService {
 
 
         Map<String,Object> map = new HashMap<>();
-        map.put("spu",spuBo.get());
-        map.put("spuDetail",spuDetail.get());
-        map.put("skus",skuList.get());
-        map.put("brand",brand.get());
-        map.put("categories",categoryList.get());
+        map.put("spu",spuBo);
+        map.put("spuDetail",spuDetail);
+        map.put("skus",skuList);
+        map.put("brand",brand);
+        map.put("categories",categoryList);
         map.put("specName",specName);
         map.put("specValue",specValue);
         map.put("groups",groups);
