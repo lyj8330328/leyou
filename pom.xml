@@ -46,7 +46,7 @@
         <leyou.latest.version>1.0.0-SNAPSHOT</leyou.latest.version>
         <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
         <jpa.version>1.0</jpa.version>
-        <jackson.version>2.9.7</jackson.version>
+        <jackson.version>2.12.1</jackson.version>
         <spring.webmvc.version>5.0.6.RELEASE</spring.webmvc.version>
         <thymeleaf.version>RELEASE</thymeleaf.version>
         <spring.amqp.version>2.1.0.M4</spring.amqp.version>
