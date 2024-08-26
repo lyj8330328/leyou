@@ -57,7 +57,7 @@
         <javax.servlet.version>3.1.0</javax.servlet.version>
         <jwt.version>0.9.1</jwt.version>
         <wxpay.version>0.0.3</wxpay.version>
-        <swagger.version>2.8.0</swagger.version>
+        <swagger.version>2.10.0</swagger.version>
         <mongodb.version>2.1.0.RELEASE</mongodb.version>
         <spring.config.version>2.0.0.RELEASE</spring.config.version>
         <dockerfile-maven-version>1.3.7</dockerfile-maven-version>
