@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class PageResult<T> {
 
+
+    private Long userId;
     /**
      * 总条数
      */
